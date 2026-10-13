@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mina svampar | Svampletarna</title>
+
+  <link rel="stylesheet" href="/CSS/app.css">
+  <link rel="stylesheet" href="/CSS/mina_svampar.css">
+  <script src="/JS/mina_svampar.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Sidhuvud och navigation -->
+  <header>
+    <nav aria-label="Huvudnavigation">
+      <div class="logotyp">
+         <img src="/logotyp.jpg" alt="Svampletarnas logotyp">
+         <h3>Svampletarna</h3>
+      </div>
+      <ul>
+        <li>
+          <a href="startsida.html">Startsida</a>
+        </li>
+        <li>
+          <a href="mina_svampar.html" aria-current="page">
+            Mina svampar
+          </a>
+        </li>
+        <li>
+          <a href="farliga_svampar.html">
+            Farliga svampar
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidans huvudinnehåll -->
+  <main>
+    <section class="mine-section">
+        <h1>Mina svampar</h1>
+        <!-- Ljusgrön informationsruta -->
+        <p class="green-section">
+            Här hittar du alla dina svampar!
+        </p>
+        
+        <!-- Här visas användarens hittade svampar -->
+         <div class="mushroom-card" id="muschroom-list">
+            <!-- Svamparna läggs till här med JavaScript -->
+         </div>
+
+         <!-- Behållaren gör att knappen och
+           texten kan ligga bredvid varandra
+           med hjälp av Flexbox -->
+
+         <div class="clear">
+
+        <!-- Knappen rensar användarens svamplista -->
+        <button type="button" id="red.button" class="red">
+          Rensa historik
+        </button>
+
+        <!-- Förklarande text bredvid knappen -->
+        <p>
+            <span>OBS!</span> Denna knapp raderar <span>ALLA</span> dina hittade svampar!
+        </p>
+      </div>
+
+
+</section>
+  </main>
+
+  <!-- Sidfot -->
+  <footer>
+    <p>Svampletarna – För dig som älskar skogen</p>
+    <p>&copy; 2026 Svampletarna</p>
+  </footer>
+
+</body>
+</html>
