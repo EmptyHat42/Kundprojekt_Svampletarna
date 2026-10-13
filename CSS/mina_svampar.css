@@ -1,0 +1,80 @@
+/* ===================================
+   MINA SVAMPAR - SIDANS LAYOUT
+   =================================== */
+/* Huvudinnehållet */
+.mine-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Sidans huvudrubrik */
+.mine-section h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+/* Beskrivande text */
+.mine-section > p {
+  margin-bottom: 1.5rem;
+}
+
+
+
+/* ===================================
+   GRÖN INFORMATIONSRUTA
+   =================================== */
+.green-section {
+  background-color: var(--lightgreen);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  color: var(--darkgreen);
+  font-weight: bold;
+}
+
+
+
+/* ===================================
+   AVSTÅND MELLAN SVAMPKORT OCH KNAPP
+   =================================== */
+.mine-section .mushroom-card {
+  margin: 1.5rem 0;
+}
+
+
+
+/* ===================================
+   RENSA HISTORIK - FLEXBOX
+   =================================== */
+.clear {
+  display: flex;
+  /* Placerar knappen och texten bredvid varandra */
+  align-items: center;
+  gap: 1rem;
+  /* Låter texten flytta ner på en ny rad
+     om skärmen är för smal */
+  flex-wrap: wrap;
+}
+/* Förklarande text bredvid knappen */
+.clear p {
+  margin: 0;
+  color: var(--darkgreen);
+}
+/* Gör endast orden OBS! och ALLA i fetstil */
+.clear p span {
+  font-weight: bold;
+}
+
+
+
+/* ===================================
+   DATOR - MINST 768PX
+   =================================== */
+@media (min-width: 768px) {
+  .mina-svampar {
+    padding: 3rem 2rem;
+  }
+  .mina-svampar h1 {
+    font-size: 2.5rem;
+  }
+}
