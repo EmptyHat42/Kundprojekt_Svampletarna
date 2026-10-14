@@ -1,3 +1,5 @@
+const svamparContainer = document.getElementById('svamp-section');
+
 async function fetchDataFromJson() {
   try{
     const response = await fetch('../JSON/svampar.json');
@@ -10,19 +12,6 @@ async function fetchDataFromJson() {
     console.error('Error fetching data:', error);
   }
 };
-
-async function init() {
-  const data = await fetchDataFromJson();
-  const svampar = data.svampar;
-  svampar.forEach(svamp => {
-    const article = createArticle(svamp);
-    svamparContainer.appendChild(article);
-  });
-}
-
-init();
-
-const svamparContainer = document.getElementById('svamp-section');
 
 // Funktion för att korta ner texten som visas i korten
 function getEatable(text) {
@@ -49,3 +38,30 @@ function createArticle(svamp) {
 
   return article;
 }
+// Funktion för att markera ätliga och giftiga svampar med olika färger
+function highlightEatable(){
+  const stycken = document.querySelectorAll('.svamp-info p');
+
+  stycken.forEach(p => {
+    const text = p.textContent.toLowerCase().trim();
+    
+    if (text.includes("ätlig")) {
+      p.classList.add("eatable", "highlight-green");
+    } else if (text.includes("giftig")) {
+      p.classList.add("eatable", "highlight-red");
+    }
+  });
+}
+
+// Initiering funktion för att köra alla funktioner som behövs för att visa svamparna på startsidan
+async function init() {
+  const data = await fetchDataFromJson();
+  const svampar = data.svampar;
+  svampar.forEach(svamp => {
+    const article = createArticle(svamp);
+    svamparContainer.appendChild(article);
+  });
+  highlightEatable();
+}
+
+init();

@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+/* ===================================
+   CSS för svampkort på startsidan
+   =================================== */
 .svamp{
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -30,6 +33,30 @@
 .svamp-info h3, p{
   margin: 0;
 }
+
+/* För att markera ätlighet tydligare */
+.eatable {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.15rem 0.2rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.eatable.highlight-green {
+  background-color: #d8f0d2;
+  color: #1e6b2e;
+}
+
+.highlight-red {
+  background-color: #fbdcdc;
+  color: #b3261e;
+}
+
+/** ===================================
+   CSS för herpo-sektionen på startsidan
+   =================================== */
 .hero-image img {
   width: 100%;
   height: auto;
@@ -37,20 +64,24 @@
 .hero-content {
   padding: 10px;
 }
-.hero-content h1{
-  line-height: 30px;
+.hero-content h2{
+  line-height: 35px;
   margin-bottom: 1px;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 .hero-content h3{
   line-height: 20px;
   margin-top: 5px;
   max-width: 80vw;
   margin-bottom: 10px;
+  font-weight: 500;
 }
 .hero-content p{
   line-height: 20px;
   margin-top: 0px;
   padding-bottom: 5px;
+  font-size: 15px;
 }
 .hero-buttons {
   display: flex;
