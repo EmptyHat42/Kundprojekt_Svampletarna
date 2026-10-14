@@ -117,38 +117,14 @@ p {
 
 /* SURFPLATTA - MINST 600PX */
 @media (min-width: 600px) {
-  .svampkort {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  nav a {
-    font-size: 1rem;
-  }
-}
-/* DATOR - MINST 768PX */
-@media (min-width: 768px) {
-}
-
-/* STÖRRE SKÄRM - MINST 1200PX */
-@media (min-width: 1200px) {
-  .hero {
-    display: flex;
-    flex-direction: row-reverse;
-  }
   .hero-image,
   .hero-content {
-    flex: 1;
-    padding: 20px;
+    padding: 10px;
   }
   .hero-content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    max-width: 40%;
-    padding-right: 0px;
-  }
-  .hero-content h2 {
-    font-size: 4rem;
-    line-height: 4.5rem;
   }
   .hero-content h3 {
     font-size: 2rem;
@@ -171,19 +147,125 @@ p {
 
   .svampar {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .svamp {
+    flex-direction: column;
+    max-width: 200px;
+    box-shadow: 2px 2px 6px rgb(153, 152, 152);
+    border: 1px solid var(--lightgreen);
+  }
+  .svamp img {
+    width: 200px;
+    height: 200px;
+    padding-right: 0px;
+    border-radius: 10px 10px 0 0;
+  }
+  .svamp-info {
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    height: 100%;
+  }
+}
+
+/* DATOR - MINST 768PX */
+@media (min-width: 768px) {
+  .svampar {
     grid-template-columns: repeat(4, 1fr);
+    padding-top: 20px;
+  }
+  .hero-content {
+    padding: 15px;
+  }
+  .hero-content h3 {
+    font-size: 1.5rem;
+  }
+  .hero-content h2 {
+    font-size: 3rem;
+  }
+  .hero-buttons {
+    padding: 10px 0;
+  }
+}
+
+/* DATOR - MINST 900px */
+@media (min-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .hero-content h2 {
+    font-size: 3.5rem;
+    line-height: 3rem;
+  }
+  .hero-buttons a {
+    width: auto;
+  }
+  .svampar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* STÖRRE SKÄRM - MINST 1200PX */
+@media (min-width: 1200px) {
+  .hero {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 40px;
+  }
+  .hero-image,
+  .hero-content {
+    flex: 1;
+    padding: 20px;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 40%;
+    padding-right: 0px;
+  }
+  .hero-content h2 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+  .hero-content h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding-bottom: 25px;
+  }
+  .hero-buttons {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .hero-buttons a {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    width: 50%;
+    padding: 20px 0;
+  }
+
+  .svampar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
   }
   .svamp {
     flex-direction: column;
     max-width: 250px;
     box-shadow: 2px 2px 6px rgb(153, 152, 152);
-border: 1px solid var(--lightgreen);
+    border: 1px solid var(--lightgreen);
   }
   .svamp img {
     width: 250px;
     height: 250px;
     padding-right: 0px;
-        border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
   }
   .svamp-info {
     gap: 10px;
