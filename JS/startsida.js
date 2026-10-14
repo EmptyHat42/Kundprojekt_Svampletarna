@@ -1,4 +1,4 @@
-async function fetchData() {
+async function fetchDataFromJson() {
   try{
     const response = await fetch('../JSON/svampar.json');
     if (!response.ok) {
@@ -11,7 +11,27 @@ async function fetchData() {
   }
 };
 
+async function init() {
+  const data = await fetchDataFromJson();
+  const svampar = data.svampar;
+  svampar.forEach(svamp => {
+    const article = createArticle(svamp);
+    svamparContainer.appendChild(article);
+  });
+}
+
+init();
+
 const svamparContainer = document.getElementById('svamp-section');
+
+// Funktion för att korta ner texten som visas i korten
+function getEatable(text) {
+  return text.split("–")[0].trim();
+}
+// Funktion för att korta ner texten som visas i korten
+function getKommun(fyndplats) {
+  return fyndplats.split(",")[0].trim();
+}
 
 function createArticle(svamp) {
   const article = document.createElement('article');
@@ -22,23 +42,10 @@ function createArticle(svamp) {
     <div class="svamp-info">
       <h3>${svamp.svenskt_namn}</h3>
       <p><em>${svamp.latinskt_namn}</em></p>
-      <p>${svamp["ätlig"]}</p>
-      <p>Fyndplats: ${svamp.fyndplats}</p>
+      <p>${getEatable(svamp["ätlig"])}</p>
+      <p>Fyndplats: ${getKommun(svamp.fyndplats)}</p>
     </div>
   `;
 
   return article;
 }
-
-
-
-async function init() {
-  const data = await fetchData();
-  const svampar = data.svampar;
-  svampar.forEach(svamp => {
-    const article = createArticle(svamp);
-    svamparContainer.appendChild(article);
-  });
-}
-
-init();
