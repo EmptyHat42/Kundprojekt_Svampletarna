@@ -6,7 +6,7 @@
 /* ===================================
    CSS för svampkort på startsidan
    =================================== */
-.svamp{
+.svamp {
   border: 1px solid #ccc;
   border-radius: 10px;
   margin: 10px;
@@ -21,7 +21,7 @@
   border-radius: 10px;
   padding-right: 5px;
 }
-.svamp-info{
+.svamp-info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -30,7 +30,8 @@
   width: 100%;
   font-size: 14px;
 }
-.svamp-info h3, p{
+.svamp-info h3,
+p {
   margin: 0;
 }
 
@@ -55,7 +56,7 @@
 }
 
 /** ===================================
-   CSS för herpo-sektionen på startsidan
+   CSS för hero-sektionen på startsidan
    =================================== */
 .hero-image img {
   width: 100%;
@@ -64,20 +65,20 @@
 .hero-content {
   padding: 10px;
 }
-.hero-content h2{
+.hero-content h2 {
   line-height: 35px;
   margin-bottom: 1px;
   font-size: 2.5rem;
   font-weight: bold;
 }
-.hero-content h3{
+.hero-content h3 {
   line-height: 20px;
   margin-top: 5px;
   max-width: 80vw;
   margin-bottom: 10px;
   font-weight: 500;
 }
-.hero-content p{
+.hero-content p {
   line-height: 20px;
   margin-top: 0px;
   padding-bottom: 5px;
@@ -112,4 +113,58 @@
   height: 100%;
   object-fit: cover;
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* SURFPLATTA - MINST 600PX */
+@media (min-width: 600px) {
+  .svampkort {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  nav a {
+    font-size: 1rem;
+  }
+}
+/* DATOR - MINST 768PX */
+@media (min-width: 768px) {
+}
+/* STÖRRE SKÄRM - MINST 1200PX */
+@media (min-width: 1200px) {
+  .hero {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .hero-image,
+  .hero-content {
+    flex: 1;
+    padding: 20px;
+  }
+  .hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 40%;
+    padding-right: 0px;
+  }
+  .hero-content h2 {
+    font-size: 4rem;
+    line-height: 4.5rem;  
+  }
+  .hero-content h3 {
+    font-size: 2rem;
+    line-height: 2rem;  
+  }
+  .hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;  
+  }
+  .hero-buttons {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .hero-buttons a {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    width: 50%;
+  }
 }
