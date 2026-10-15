@@ -271,7 +271,7 @@ RESPONSIV DESIGN - MOBILE FIRST
   .svampkort {
     grid-template-columns: repeat(2, 1fr);
   }
-  nav a {
+  nav a{
     font-size: 1rem;
   }
 }
