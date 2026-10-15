@@ -1,7 +1,5 @@
 const { element } = require("prop-types");
 
-let formRef;
-
 function init(){
     const mushroomCard = document.creatElement("article")
     showMushroomData(mushroomCard)

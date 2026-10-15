@@ -1,4 +1,3 @@
-const { element } = require("prop-types");
 
 function init(){
 const buttons = document.querySelectorAll("");
