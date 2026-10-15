@@ -25,6 +25,7 @@ function getKommun(fyndplats) {
 function createArticle(svamp) {
   const article = document.createElement('article');
   article.classList.add('svamp');
+  const boolean = checkLocalStorage(svamp); // Ändra detta till true om du vill visa knappen "Spara till mina svampar"
 
   article.innerHTML = `
     <img src="../svampar/${svamp.bild}" alt="${svamp.svenskt_namn}">
@@ -33,12 +34,12 @@ function createArticle(svamp) {
       <p><em>${svamp.latinskt_namn}</em></p>
       <p>${getEatable(svamp["ätlig"])}</p>
       <p><strong>Fyndplats:</strong> ${getKommun(svamp.fyndplats)}</p>
-      <button class="svampButton">Spara till mina svampar</button>
+      ${boolean ? '<button class="svampButton">Spara till mina svampar</button>' : '<button disabled>Redan sparad</button>'}
     </div>
   `;
-
   return article;
 }
+
 // Funktion för att markera ätliga och giftiga svampar med olika färger
 function highlightEatable(){
   const stycken = document.querySelectorAll('.svamp-info p');
@@ -58,6 +59,8 @@ async function saveMushroom (mushroom){
     const mushroomList = JSON.parse(localStorage.getItem('mushroom')) || [];
     mushroomList.push(mushroom);
     localStorage.setItem('mushroom', JSON.stringify(mushroomList))
+    const data = JSON.parse(localStorage.getItem('mushroom'));
+    console.log("Mushroom saved to localStorage:", data);
     };
 
 function buildMushroomObject(sName, lName, sBild){
@@ -68,24 +71,29 @@ function buildMushroomObject(sName, lName, sBild){
         };
 }
 
-async function searchArticles() {
-    const articles = document.querySelectorAll("")
-    articles.forEach(articel =>{
-        const swedishName = articel.querySelector("")
-        const latinName = articel.querySelector("")
-        const bild = articel.querySelector("")
-        const button = articel.querySelector("")
-        button.addEventListener("click", () => {
-            const mushroomObject = buildMushroomObject(swedishName, latinName, bild)
-            saveMushroom(mushroomObject)
-        });
-        
-    });
-    
-}
+ function searchArticles(button) {
+    const articles = button.closest("article.svamp");
+    const svensktNamn = articles.querySelector("h3");
+    const latinsktNamn = articles.querySelector("p em");
+    const bild = articles.querySelector("img").getAttribute("src");
+    return mushroom = buildMushroomObject(svensktNamn.textContent, latinsktNamn.textContent, bild);
+    };
+
+  function checkLocalStorage(svamp) {
+        const mushroomList = JSON.parse(localStorage.getItem('mushroom')) || [];
+        if (mushroomList.length > 0) {
+          for (const mushroom of mushroomList) {
+            if(mushroom.svenskt_namn === svamp.svenskt_namn){
+              return false;
+            }}
+            
+          }
+          return true;
+        }
 
 // Initiering funktion för att köra alla funktioner som behövs för att visa svamparna på startsidan
 async function init() {
+  localStorage.clear("mushroom");
   const data = await fetchDataFromJson();
   const svampar = data.svampar;
   svampar.forEach(svamp => {
@@ -93,6 +101,18 @@ async function init() {
     svamparContainer.appendChild(article);
   });
   highlightEatable();
+  document.addEventListener("click", async function(event) {
+    if (event.target.classList.contains("svampButton")) {
+      searchArticles(event.target);
+      const mushroom = searchArticles(event.target);
+      await saveMushroom(mushroom);
+      svamparContainer.innerHTML = "";
+      svampar.forEach(svamp => {
+        const article = createArticle(svamp);
+        svamparContainer.appendChild(article);
+      });
+      highlightEatable();
+    };
+  });
 }
-
 init();

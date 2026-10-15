@@ -1,20 +1,23 @@
 const mushroomCards = document.getElementById("muschroom-list");
 
 function init(){
-    const articel = showMushroomData()
-    mushroomCards.appendChild(articel)
+    showMushroomData();
+
     const deleteButton = document.getElementById("red.button");
     deleteButton.addEventListener("click", deleteMushroomList);
 }
 window.onload = init;
 
-async function deleteMushroomList() {
-    localStorage.clear("mushroom");
+async function deleteMushroomList(){
+    console.log("Delete button clicked");
+    localStorage.removeItem("mushroom");
     showMushroomData();
+    console.log("Mushroom list deleted from localStorage");
 }
 
 async function showMushroomData (){
     const mushroomList = JSON.parse(localStorage.getItem("mushroom")) || [];
+    mushroomCards.innerHTML = "";
     if(mushroomList.length > 0){
         mushroomList.forEach(svamp => {
             const article = document.createElement('article');
@@ -27,9 +30,7 @@ async function showMushroomData (){
             <p><em>${svamp.latinskt_namn}</em></p>
             </div>
   `         ;
-            return article;
-
-        
+            mushroomCards.appendChild(article)
         });
     }
     else{
