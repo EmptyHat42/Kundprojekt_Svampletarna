@@ -2,19 +2,22 @@
    MINA SVAMPAR - SIDANS LAYOUT
    =================================== */
 /* Huvudinnehållet */
-.mine-section {
+section 
+{
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 /* Sidans huvudrubrik */
-.mine-section h1 {
-  font-size: 2rem;
+section h2 
+{
+  font-size: 3rem;
   margin: 0 0 1rem;
 }
 /* Beskrivande text */
-.mine-section > p {
+section > p 
+{
   margin-bottom: 1.5rem;
 }
 
@@ -23,7 +26,8 @@
 /* ===================================
    GRÖN INFORMATIONSRUTA
    =================================== */
-.green-section {
+.green-section 
+{
   background-color: var(--lightgreen);
   padding: 1rem;
   border-radius: 0.5rem;
@@ -37,7 +41,8 @@
 /* ===================================
    AVSTÅND MELLAN SVAMPKORT OCH KNAPP
    =================================== */
-.mine-section .mushroom-card {
+section .mushroom-card 
+{
   margin: 1.5rem 0;
 }
 
@@ -46,7 +51,8 @@
 /* ===================================
    RENSA HISTORIK - FLEXBOX
    =================================== */
-.clear {
+.clear 
+{
   display: flex;
   /* Placerar knappen och texten bredvid varandra */
   align-items: center;
@@ -55,26 +61,44 @@
      om skärmen är för smal */
   flex-wrap: wrap;
 }
-/* Förklarande text bredvid knappen */
-.clear p {
+/* Varningstext bredvid knappen */
+.clear p 
+{
   margin: 0;
-  color: var(--darkgreen);
+  color: var(--red);
+  font-size: 0.8rem;
 }
-/* Gör endast orden OBS! och ALLA i fetstil */
-.clear p span {
+/* Varningsikon */
+.warning-text i
+{
+    color: var(--red);
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+}
+/* Gör text i fetstil */
+.clear p span 
+{
   font-weight: bold;
 }
-
+/* Sopkorg ikon på knapp Rensa historik */
+button.red i
+{
+    color: var(--red);
+    margin-right: 0.5rem;
+}
 
 
 /* ===================================
    DATOR - MINST 768PX
    =================================== */
-@media (min-width: 768px) {
-  .mina-svampar {
+@media (min-width: 768px) 
+{
+  .mina-svampar 
+  {
     padding: 3rem 2rem;
   }
-  .mina-svampar h1 {
+  .mina-svampar h1 
+  {
     font-size: 2.5rem;
   }
 }
