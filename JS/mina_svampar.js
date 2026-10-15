@@ -3,6 +3,10 @@ const mushroomCards = document.getElementById("muschroom-list");
 function init(){
     const articel = showMushroomData()
     mushroomCards.appendChild(articel)
+    const deleteButton = document.getElementById("red.button");
+    deleteButton.addEventListener("click", () => {
+        deleteMushroomList();
+    });
 }
 window.onload = init;
 
