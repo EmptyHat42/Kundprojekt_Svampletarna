@@ -4,14 +4,13 @@ function init(){
     const articel = showMushroomData()
     mushroomCards.appendChild(articel)
     const deleteButton = document.getElementById("red.button");
-    deleteButton.addEventListener("click", () => {
-        deleteMushroomList();
-    });
+    deleteButton.addEventListener("click", deleteMushroomList);
 }
 window.onload = init;
 
 async function deleteMushroomList() {
     localStorage.clear("mushroom");
+    showMushroomData();
 }
 
 async function showMushroomData (){
@@ -29,6 +28,13 @@ async function showMushroomData (){
             </div>
   `         ;
             return article;
+
+        
         });
+    }
+    else{
+        const noMushroomsMessage = document.createElement('p');
+        noMushroomsMessage.textContent = "Inga svampar sparade.";
+        mushroomCards.appendChild(noMushroomsMessage);
     }
 }
