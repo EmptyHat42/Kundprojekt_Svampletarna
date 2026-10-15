@@ -4,6 +4,12 @@ main{
 }
 
 main > h2{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+main > h3{
     text-align: center;
     background-color: var(--lightgreen);
     padding: 1rem;
@@ -13,6 +19,7 @@ main > h2{
     color: var(--darkgreen);
     font-weight: bold;
     max-width: 40rem;
+    font-size: 1.5rem;
 }
 
 .svampkort > article > h2{
