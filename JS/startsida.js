@@ -32,7 +32,7 @@ function createArticle(svamp) {
       <h3>${svamp.svenskt_namn}</h3>
       <p><em>${svamp.latinskt_namn}</em></p>
       <p>${getEatable(svamp["ätlig"])}</p>
-      <p>Fyndplats: ${getKommun(svamp.fyndplats)}</p>
+      <p><strong>Fyndplats:</strong> ${getKommun(svamp.fyndplats)}</p>
     </div>
   `;
 
