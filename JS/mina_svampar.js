@@ -1,8 +1,7 @@
 const { element } = require("prop-types");
 
 function init(){
-    const mushroomCard = document.creatElement("article")
-    showMushroomData(mushroomCard)
+    showMushroomData()
 
 }
 window.onload = init;
@@ -15,6 +14,7 @@ async function showMushroomData (mushroomCard){
     const mushroomList = JSON.parse(localStorage.getItem("mushroom")) || [];
     if(mushroomList != []){
         mushroomList.forEach(element => {
+            const mushroomCard = document.creatElement("article")
             const swedishName = element.svenskt_namn;
             const latinName = element.latinskt_namn;
             const img = element.bild;
