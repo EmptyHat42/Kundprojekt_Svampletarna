@@ -93,7 +93,6 @@ function buildMushroomObject(sName, lName, sBild){
 
 // Initiering funktion för att köra alla funktioner som behövs för att visa svamparna på startsidan
 async function init() {
-  localStorage.clear("mushroom");
   const data = await fetchDataFromJson();
   const svampar = data.svampar;
   svampar.forEach(svamp => {
