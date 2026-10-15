@@ -69,12 +69,12 @@ function buildMushroomObject(sName, lName, sBild){
 }
 
 async function searchArticles() {
-    const articles = document.querySelectorAll(".svamp")
+    const articles = document.querySelectorAll("")
     articles.forEach(articel =>{
-        const swedishName = articel.querySelector(".h3")
-        const latinName = articel.querySelector(".em")
-        const bild = articel.querySelector(".img")
-        const button = articel.querySelector(".svampButton")
+        const swedishName = articel.querySelector("")
+        const latinName = articel.querySelector("")
+        const bild = articel.querySelector("")
+        const button = articel.querySelector("")
         button.addEventListener("click", () => {
             const mushroomObject = buildMushroomObject(swedishName, latinName, bild)
             saveMushroom(mushroomObject)
