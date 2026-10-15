@@ -10,9 +10,9 @@ section
   padding: 2rem 1rem;
 }
 /* Sidans huvudrubrik */
-section h1 
+section h2 
 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 0 0 1rem;
 }
 /* Beskrivande text */
@@ -61,18 +61,31 @@ section .mushroom-card
      om skärmen är för smal */
   flex-wrap: wrap;
 }
-/* Förklarande text bredvid knappen */
+/* Varningstext bredvid knappen */
 .clear p 
 {
   margin: 0;
-  color: var(--darkgreen);
+  color: var(--red);
+  font-size: 0.8rem;
 }
-/* Gör endast orden OBS! och ALLA i fetstil */
+/* Varningsikon */
+.warning-text i
+{
+    color: var(--red);
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+}
+/* Gör text i fetstil */
 .clear p span 
 {
   font-weight: bold;
 }
-
+/* Sopkorg ikon på knapp Rensa historik */
+button.red i
+{
+    color: var(--red);
+    margin-right: 0.5rem;
+}
 
 
 /* ===================================
