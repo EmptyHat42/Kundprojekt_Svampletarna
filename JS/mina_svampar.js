@@ -1,8 +1,8 @@
-const { element } = require("prop-types");
+const mushroomCards = document.getElementById("muschroom-list");
 
 function init(){
-    showMushroomData()
-
+    const articel = showMushroomData()
+    mushroomCards.appendChild(articel)
 }
 window.onload = init;
 
@@ -10,23 +10,21 @@ async function deleteMushroomList() {
     localStorage.clear("mushroom");
 }
 
-async function showMushroomData (mushroomCard){
+async function showMushroomData (){
     const mushroomList = JSON.parse(localStorage.getItem("mushroom")) || [];
-    if(mushroomList != []){
-        mushroomList.forEach(element => {
-            const mushroomCard = document.creatElement("article")
-            const swedishName = element.svenskt_namn;
-            const latinName = element.latinskt_namn;
-            const img = element.bild;
-            const latinNameText = document.createElement("p");
-            const swedishNameText = document.creatElement("p");
-            const showImg = document.creatElement("img");
-            latinNameText.textContent = latinName;
-            swedishNameText.textContent = swedishName;
-            showImg.textContent = img;
-            mushroomCard.appendChild(latinName)
-            mushroomCard.appendChild(swedishName)
-            mushroomCard.appendChild(img)
+    if(mushroomList.length > 0){
+        mushroomList.forEach(svamp => {
+            const article = document.createElement('article');
+            article.classList.add('svamp');
+
+            article.innerHTML = `
+            <img src="../svampar/${svamp.bild}" alt="${svamp.svenskt_namn}">
+            <div class="svamp-info">
+            <h3>${svamp.svenskt_namn}</h3>
+            <p><em>${svamp.latinskt_namn}</em></p>
+            </div>
+  `         ;
+            return article;
         });
     }
 }
