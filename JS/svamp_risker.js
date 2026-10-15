@@ -31,7 +31,7 @@ const inedible = "Oätlig";
 
 // Funktion för att skapa våra artiklar //
 function createArticles(data){
-    data.särskiljande_egenskaper.forEach(article => { // FÖR VARJE produkt i vårt json dokument kör funktion med produkt array som bas //
+    data.särskiljande_egenskaper.forEach(article => { // FÖR VARJE produkt i vårt json dokument kör funktion med särskiljande_egenskaper array som bas //
         const articleElement = document.createElement("article");
         let dangerType;
 
