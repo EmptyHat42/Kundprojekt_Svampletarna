@@ -21,7 +21,7 @@ async function showMushroomData (){
     if(mushroomList.length > 0){
         mushroomList.forEach(svamp => {
             const article = document.createElement('article');
-            article.classList.add('svamp');
+            article.classList.add('green-section');
 
             article.innerHTML = `
             <img src="../svampar/${svamp.bild}" alt="${svamp.svenskt_namn}">
