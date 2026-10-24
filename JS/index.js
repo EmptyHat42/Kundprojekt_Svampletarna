@@ -24,12 +24,11 @@ function getKommun(fyndplats) {
 
 function createArticle(svamp) {
   const article = document.createElement('article');
-  article.classList.add('svamp');
   const boolean = checkLocalStorage(svamp); // Ändra detta till true om du vill visa knappen "Spara till mina svampar"
 
   article.innerHTML = `
     <img src="../svampar/${svamp.bild}" alt="${svamp.svenskt_namn}">
-    <div class="svamp-info">
+    <div>
       <h3>${svamp.svenskt_namn}</h3>
       <p><em>${svamp.latinskt_namn}</em></p>
       <p>${getEatable(svamp["ätlig"])}</p>
